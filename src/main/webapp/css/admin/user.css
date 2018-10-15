@@ -1,0 +1,35 @@
+.myUser table{
+    width: 100%;
+    text-align: center;
+}
+.myUser table tbody tr td{
+    vertical-align: middle;
+}
+.userAdd table{
+    margin: 10px auto;
+    width: 40%;
+    border-collapse: separate;
+    border-spacing: 10px;
+    /*table-layout: fixed;*/
+}
+.userAdd form table tbody tr td:first-child{
+    /*width: 5%;*/
+    text-align: right;
+    padding-right: 20px;
+}
+.myUser table thead tr th{
+    text-align: center;
+}
+.userImage{
+    width: 13%;
+}
+.userEdit{
+    width:13%;
+}
+.editUserTable
+{
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 10px;
+}

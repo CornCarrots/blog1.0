@@ -1,0 +1,27 @@
+.link{
+    margin: 0 auto;
+    width: 30%;
+}
+.register,.login{
+    margin: 0 auto;
+    width: 21%;
+}
+.registerTable,.loginTable,.linkTable{
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.registerTable tr td:first-child,.linkTable tr td:first-child{
+    text-align: right;
+}
+.existsDIV,.errorDIV{
+    color: red;
+    text-align: center;
+}
+.successP{
+    color: #999;
+    /*font-size: 12px;*/
+}
+.loginMod{
+    margin: 0 auto;
+    width: 41%;
+}

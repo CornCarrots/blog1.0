@@ -1,0 +1,18 @@
+.addNotice table,.editNotice table{
+    margin: 10px auto;
+    width: 80%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.myNotice table{
+    text-align: center;
+}
+.myNotice table tbody tr td,.myNotice table thead tr th{
+    vertical-align: middle;
+}
+.myNotice table .noticeEdit{
+    width:13%;
+}
+.myNotice table .noticeId{
+    width: 5%;
+}

@@ -1,0 +1,94 @@
+.information ul li{
+    list-style: none;
+    margin-left: -30px;
+    margin-top: 5px ;
+    margin-bottom: 5px ;
+}
+.information{
+    width: 30%;
+    /*margin-right: 200px;*/
+}
+.information>div{
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    /*padding: 0px 10px;*/
+}
+.info_title{
+    border-bottom:1px solid #ddd ;
+    /*padding-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    font-weight: bold;
+}
+.info_title .info_title_tag{
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+    color: #009688;
+
+}
+.info_title .separate{
+    display: inline-block;
+    width: 1px;
+    height: 35px;
+    vertical-align: middle;
+    background-color: #ddd;
+
+}
+.info_author .info_author_information{
+    margin: 10px;
+}
+.info_author .info_author_information  img{
+    margin: 0 10px 10px 0px;
+}
+.info_author .info_author_information  .info_author_name{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.info_author_all {
+    text-align: center;
+    border-top:1px solid #ddd ;
+}
+.info_author_all span{
+    display:inline-block;
+    width: 48%;
+    text-align: center;
+}
+.info_author_all .separate{
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    vertical-align: middle;
+    background-color: #ddd;
+}
+.info_website .info_website_information{
+    margin: 10px;
+    text-align: left;
+}
+.info_hot a{
+    color: black;
+    text-decoration: none;
+}
+.info_hot a:hover{
+    color: #009688;
+}
+.info_tag .info_tag_myTag span{
+    margin: 7px;
+    padding: 3px;
+    display: inline-block;
+    border: 1px solid #ddd;
+}
+.info_tag .info_tag_myTag span a{
+    text-decoration: none;
+    color: black;
+}
+.info_tag .info_tag_myTag span:hover{
+    background-color: #009688;
+    color: white;
+}
+.info_comment_myComment ul li{
+    list-style: none;
+    margin-left: -20px;
+    margin-top: 10px ;
+    margin-bottom: 10px ;
+}

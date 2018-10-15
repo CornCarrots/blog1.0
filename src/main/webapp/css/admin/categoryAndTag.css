@@ -1,0 +1,48 @@
+.addCategory,.addTag{
+    text-align: center;
+    width: 30%;
+    margin: 30px auto;
+}
+.addCategory table,.addTag table{
+    margin: 10px auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.addCategory table tbody tr>td,.addTag table tbody tr>td{
+    /*vertical-align: top;*/
+    text-align: left;
+}
+.myCategory table,.myTag table{
+    width: 60%;
+    margin: 10px auto;
+    text-align: center;
+}
+.myCategory table thead tr th,.myTag table thead tr th{
+    text-align: center;
+}
+.myCategory table tbody tr td,.myTag table tbody tr td{
+    line-height: 28px;
+}
+.myCategory_id,.myCategory_pid,.myCategory_status,.myTag_id,.myTag_status{
+    width: 10%;
+}
+.myCategory_edit,.myTag_edit{
+    width: 20%;
+}
+.myCategory_article,.myTag_article{
+    width: 15%;
+}
+.parentNode{
+    background-color: #009688;
+}
+.editCategoryModelDialog{
+    width: 500px;
+}
+.editCategoryModelContent{
+    height: 290px;
+}
+.editCategoryTable,.editTagTable{
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}

@@ -1,0 +1,20 @@
+.myLink table{
+    text-align: center;
+}
+.myLink table thead tr th{
+    text-align: center;
+}
+.linkEdit{
+    width: 13%;
+}
+.linkAdd table{
+    margin: 10px auto;
+    width: 30%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.editLinkTable{
+    margin:  0 auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}

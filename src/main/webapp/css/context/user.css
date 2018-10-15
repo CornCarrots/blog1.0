@@ -1,0 +1,55 @@
+.userLeft{
+    width: 20%;
+    margin: 0 10px;
+}
+.userRight{
+    min-width: 78%;
+    max-width: 78%;
+    margin-bottom: 40px;
+}
+.userTable{
+    float: left;
+    /*width: 58%;*/
+    border-collapse: separate;
+    border-spacing: 17px;
+    margin: 10px 85px;
+}
+.userImg{
+    float: left;
+}
+.userImg img{
+    margin-bottom: 10px;
+}
+.userImg div{
+    margin: 5px 0;
+}
+.foreArticle{
+    border-collapse: separate;
+    border-spacing: 10px;
+    table-layout: fixed;
+}
+.foreArticle tr td:first-child{
+    width: 50px;
+}
+
+.allComment_table thead tr th,.waitComment_table thead tr th{
+    text-align: center;
+}
+.allComment_table tbody tr td,.waitComment_table tbody tr td{
+    vertical-align: middle;
+}
+.comment_table_id{
+    width: 5%;
+    text-align: center;
+}
+.comment_table_author{
+    text-align: center;
+    width: 8%;
+}
+.comment_table_article{
+    width: 30%;
+}
+.comment_table_date{
+    text-align: center;
+    width: 17%;
+}

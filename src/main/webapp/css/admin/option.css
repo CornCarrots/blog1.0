@@ -1,0 +1,30 @@
+#preview-pane {
+    float: right;
+}
+
+.Imagecontainer {
+    margin-top: 20px;
+}
+
+.preview-container {
+    border: 2px solid #999;
+}
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+
+}

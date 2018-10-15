@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.mapper.LinkMapper">
+  <resultMap id="BaseResultMap" type="com.lh.bean.Link">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="link_url" jdbcType="VARCHAR" property="linkUrl" />
+    <result column="link_name" jdbcType="VARCHAR" property="linkName" />
+    <result column="link_describe" jdbcType="VARCHAR" property="linkDescribe" />
+    <result column="link_create_date" jdbcType="TIMESTAMP" property="linkCreateDate" />
+    <result column="link_update_date" jdbcType="TIMESTAMP" property="linkUpdateDate" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, link_url, link_name, link_describe, link_create_date, link_update_date, STATUS
+  </sql>
+  <select id="selectByExample" parameterType="com.lh.bean.LinkExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from link
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from link
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from link
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.Link" useGeneratedKeys="true">
+    insert into link (link_url, link_name, link_describe, 
+      link_create_date, link_update_date, STATUS
+      )
+    values (#{linkUrl,jdbcType=VARCHAR}, #{linkName,jdbcType=VARCHAR}, #{linkDescribe,jdbcType=VARCHAR}, 
+      #{linkCreateDate,jdbcType=TIMESTAMP}, #{linkUpdateDate,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.Link" useGeneratedKeys="true">
+    insert into link
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="linkUrl != null">
+        link_url,
+      </if>
+      <if test="linkName != null">
+        link_name,
+      </if>
+      <if test="linkDescribe != null">
+        link_describe,
+      </if>
+      <if test="linkCreateDate != null">
+        link_create_date,
+      </if>
+      <if test="linkUpdateDate != null">
+        link_update_date,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="linkUrl != null">
+        #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="linkName != null">
+        #{linkName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkDescribe != null">
+        #{linkDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="linkCreateDate != null">
+        #{linkCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linkUpdateDate != null">
+        #{linkUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lh.bean.Link">
+    update link
+    <set>
+      <if test="linkUrl != null">
+        link_url = #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="linkName != null">
+        link_name = #{linkName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkDescribe != null">
+        link_describe = #{linkDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="linkCreateDate != null">
+        link_create_date = #{linkCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linkUpdateDate != null">
+        link_update_date = #{linkUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lh.bean.Link">
+    update link
+    set link_url = #{linkUrl,jdbcType=VARCHAR},
+      link_name = #{linkName,jdbcType=VARCHAR},
+      link_describe = #{linkDescribe,jdbcType=VARCHAR},
+      link_create_date = #{linkCreateDate,jdbcType=TIMESTAMP},
+      link_update_date = #{linkUpdateDate,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

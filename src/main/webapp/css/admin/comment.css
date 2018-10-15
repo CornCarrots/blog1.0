@@ -1,0 +1,65 @@
+.comment{
+    margin: 10px auto;
+}
+.comment a{
+    color: black;
+    text-decoration: none;
+}
+.allComment_table,.waitComment_table{
+    margin: 15px auto;
+    width: 100%;
+}
+.allComment_table thead tr th,.waitComment_table thead tr th{
+    text-align: center;
+}
+.allComment_table tbody tr td,.waitComment_table tbody tr td{
+    vertical-align: middle;
+}
+.comment_table_id{
+    width: 5%;
+    text-align: center;
+}
+.comment_table_author{
+    text-align: center;
+    width: 8%;
+}
+.comment_table_article{
+    width: 30%;
+}
+.comment_table_date{
+    text-align: center;
+    width: 13%;
+}
+.allComment_table_text,.waitComment_table_text{
+    width: 40%;
+}
+.allComment_table_edit,.waitComment_table_edit{
+    margin-top: 20px;
+}
+.allComment_table_edit a,.waitComment_table_edit a{
+    color: #009688;
+}
+.allComment_table_edit a:hover,.waitComment_table_edit a:hover{
+    color: #999999;
+}
+.nosee{
+    color: red;
+}
+.see{
+    color: green;
+}
+.information_table{
+    margin: 20px auto;
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 40px;
+}
+.information_table tbody tr td:first-child{
+    width: 10%;
+}
+.setting_table{
+    margin: 10px auto;
+    width: 50%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}

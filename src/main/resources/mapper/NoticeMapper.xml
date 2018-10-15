@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.mapper.NoticeMapper">
+  <resultMap id="BaseResultMap" type="com.lh.bean.Notice">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="notice_title" jdbcType="VARCHAR" property="noticeTitle" />
+    <result column="notice_create_date" jdbcType="TIMESTAMP" property="noticeCreateDate" />
+    <result column="notice_update_date" jdbcType="TIMESTAMP" property="noticeUpdateDate" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.lh.bean.NoticeWithBLOBs">
+    <result column="notice_html_text" jdbcType="LONGVARCHAR" property="noticeHtmlText" />
+    <result column="notice_md_text" jdbcType="LONGVARCHAR" property="noticeMdText" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, notice_title, notice_create_date, notice_update_date, STATUS
+  </sql>
+  <sql id="Blob_Column_List">
+    notice_html_text, notice_md_text
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.lh.bean.NoticeExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from notice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.lh.bean.NoticeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from notice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from notice
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from notice
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.NoticeWithBLOBs" useGeneratedKeys="true">
+    insert into notice (notice_title, notice_create_date, 
+      notice_update_date, STATUS, notice_html_text, 
+      notice_md_text)
+    values (#{noticeTitle,jdbcType=VARCHAR}, #{noticeCreateDate,jdbcType=TIMESTAMP}, 
+      #{noticeUpdateDate,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{noticeHtmlText,jdbcType=LONGVARCHAR}, 
+      #{noticeMdText,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.NoticeWithBLOBs" useGeneratedKeys="true">
+    insert into notice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noticeTitle != null">
+        notice_title,
+      </if>
+      <if test="noticeCreateDate != null">
+        notice_create_date,
+      </if>
+      <if test="noticeUpdateDate != null">
+        notice_update_date,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="noticeHtmlText != null">
+        notice_html_text,
+      </if>
+      <if test="noticeMdText != null">
+        notice_md_text,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noticeTitle != null">
+        #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeCreateDate != null">
+        #{noticeCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noticeUpdateDate != null">
+        #{noticeUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="noticeHtmlText != null">
+        #{noticeHtmlText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="noticeMdText != null">
+        #{noticeMdText,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lh.bean.NoticeWithBLOBs">
+    update notice
+    <set>
+      <if test="noticeTitle != null">
+        notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeCreateDate != null">
+        notice_create_date = #{noticeCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noticeUpdateDate != null">
+        notice_update_date = #{noticeUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="noticeHtmlText != null">
+        notice_html_text = #{noticeHtmlText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="noticeMdText != null">
+        notice_md_text = #{noticeMdText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lh.bean.NoticeWithBLOBs">
+    update notice
+    set notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      notice_create_date = #{noticeCreateDate,jdbcType=TIMESTAMP},
+      notice_update_date = #{noticeUpdateDate,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=INTEGER},
+      notice_html_text = #{noticeHtmlText,jdbcType=LONGVARCHAR},
+      notice_md_text = #{noticeMdText,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lh.bean.Notice">
+    update notice
+    set notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      notice_create_date = #{noticeCreateDate,jdbcType=TIMESTAMP},
+      notice_update_date = #{noticeUpdateDate,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

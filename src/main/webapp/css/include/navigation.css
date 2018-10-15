@@ -1,0 +1,101 @@
+.BigTitle{
+    font-size: 18px;
+    font-weight: bolder;
+}
+.navigation a{
+    color: #8c8d8f;
+    text-decoration: none;
+}
+.navigation .myactive:before{
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0px;
+    background: #ddd;
+    width: 100%;
+    height: 80%;
+}
+.navigation .myactive:after{
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 0px;
+    background: #ddd;
+    width: 100%;
+    height: 70%;
+}
+.navigation .myactive{
+    background-color:#ddd ;
+    position: relative;
+}
+.navigation .myactive a{
+    color: #222222;
+}
+.navigation a:hover{
+    /*color: white;*/
+    text-decoration: none;
+}
+.navigation
+{
+    width: 80%;
+    margin: 30px auto;
+    background-color:white;
+
+}
+.myHot{
+    margin:10px 20px 10px 20px;
+}
+.myHot a:hover{
+    color: #009688;
+}
+.main{
+    width: 80%;
+    margin: 35px auto;
+    background-color:white;
+}
+.top_navigate{
+    margin-bottom: 10px;
+    padding: 10px 0px;
+    font-size: 16px;
+}
+
+.left_navigate{
+    width: 70%;
+    display: inline-block;
+}
+.left_navigate span{
+    display: inline-block;
+    width: 12%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    font-weight: bold;
+    font-family:Arial;
+}
+.right_navigate
+{
+    width: 25%;
+    display: inline-block;
+}
+.right_navigate .input-append input{
+    width: 186px;
+    height: 30px;
+    border-radius: 14px 0 0 14px;
+    outline: none;
+}
+.right_navigate .input-append input::-webkit-input-placeholder {
+     /* placeholder颜色  */
+     color: #aab2bd;
+     /* placeholder字体大小  */
+     font-size: 12px;
+    margin-left: 10px;
+ }
+.right_navigate .input-append button{
+    display: inline-block;
+    border-radius: 0 14px 14px 0;
+    margin-left: -4px;
+    height: 30px;
+    width: 70px;
+    vertical-align: top;
+    outline: none;
+}

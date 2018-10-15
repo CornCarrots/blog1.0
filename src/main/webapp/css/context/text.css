@@ -1,0 +1,148 @@
+.someText ul li{
+    list-style: none;
+    margin-left: -40px;
+}
+.test{
+    width: 68%;
+}
+.test>div{
+    border: 1px solid #ddd;
+}
+.test a{
+    color: black;
+    text-decoration: none;
+}
+.test .MainText{
+    padding: 10px;
+    margin: 10px;
+}
+.test .MainText .text_title{
+    position: relative;
+    margin-bottom: 10px;
+    outline: none;
+}
+.test .MainText .text_title .text_title_left{
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+.text_title_left span,.text_title_right span{
+    display: inline-block;
+    width: 75px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px ;
+    color: #999999;
+}
+.text_title_left span:hover ,.text_title_right span:hover{
+    background-color:#009688;
+    color: white;
+}
+.test .MainText .text_title .text_title_right{
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+.test .MainText .text_main{
+    margin: 40px auto;
+    /*width: 80%;*/
+    line-height: 30px;
+    font-size: 14px;
+    font-family: Arial;
+    text-indent:2em;
+}
+.test .MainText .text_main .text_main_title{
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+.test .MainText .text_category{
+    margin-left: 20px;
+}
+.someText{
+    padding: 10px ;
+    margin: 10px;
+    position: relative;
+}
+.someText p{
+    font-size: 16px;
+    font-weight: bold;
+}
+.someText a:hover{
+    /*background-color:#009688;*/
+    color: #009688;
+    text-decoration: none;
+}
+.someText .text_other,.someText .text_like,.someText .separate{
+    display: inline-block;
+}
+.someText .text_other,.someText .text_like{
+    width: 47%;
+    vertical-align: text-top;
+}
+.someText .text_like{
+    margin-left:31px;
+}
+.someText .separate{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 140px;
+    background-color: #ebebeb;
+}
+.otherText{
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+}
+.otherText div:hover{
+    background-color: #009688;
+    color: white;
+    text-decoration: none;
+}
+.otherText .text_prev{
+    border-right: 1px solid #ebebeb;
+}
+.otherText .text_prev,.otherText .text_next{
+    display: inline-block;
+    width: 49%;
+    border-radius: 4px;
+    vertical-align: top;
+    min-height: 10px;
+}
+.commentText{
+    margin: 10px;
+    padding: 10px 10px;
+}
+.commentText textarea{
+    resize: none;
+}
+.comment{
+    margin: 10px;
+    padding: 10px;
+}
+.comment p{
+    color: #999999;
+}
+.comment .mainComment .commentName ,.comment .otherComment .commentName{
+    font-weight: bold;
+}
+.comment .mainComment{
+    margin: 0 0 10px 0;
+    padding: 10px 10px 0 10px;
+    border: 1px solid #ebebeb;
+}
+.comment .mainComment img ,.comment .otherComment img{
+    width: 64px;
+    height: 64px;
+    margin-right: 20px;
+}
+.comment .mainComment .otherComment{
+    margin: 30px;
+    padding: 10px 10px 0 10px;
+    border: 1px solid #ebebeb;
+}

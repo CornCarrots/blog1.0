@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.mapper.UserFriendMapper">
+  <resultMap id="BaseResultMap" type="com.lh.bean.UserFriend">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="friend_uid" jdbcType="INTEGER" property="friendUid" />
+    <result column="friend_status" jdbcType="INTEGER" property="friendStatus" />
+    <result column="friend_note" jdbcType="VARCHAR" property="friendNote" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, uid, friend_uid, friend_status, friend_note
+  </sql>
+  <select id="selectByExample" parameterType="com.lh.bean.UserFriendExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from user_friend
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_friend
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_friend
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.UserFriend" useGeneratedKeys="true">
+    insert into user_friend (uid, friend_uid, friend_status, 
+      friend_note)
+    values (#{uid,jdbcType=INTEGER}, #{friendUid,jdbcType=INTEGER}, #{friendStatus,jdbcType=INTEGER}, 
+      #{friendNote,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.UserFriend" useGeneratedKeys="true">
+    insert into user_friend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="friendUid != null">
+        friend_uid,
+      </if>
+      <if test="friendStatus != null">
+        friend_status,
+      </if>
+      <if test="friendNote != null">
+        friend_note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="friendUid != null">
+        #{friendUid,jdbcType=INTEGER},
+      </if>
+      <if test="friendStatus != null">
+        #{friendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="friendNote != null">
+        #{friendNote,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lh.bean.UserFriend">
+    update user_friend
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="friendUid != null">
+        friend_uid = #{friendUid,jdbcType=INTEGER},
+      </if>
+      <if test="friendStatus != null">
+        friend_status = #{friendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="friendNote != null">
+        friend_note = #{friendNote,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lh.bean.UserFriend">
+    update user_friend
+    set uid = #{uid,jdbcType=INTEGER},
+      friend_uid = #{friendUid,jdbcType=INTEGER},
+      friend_status = #{friendStatus,jdbcType=INTEGER},
+      friend_note = #{friendNote,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

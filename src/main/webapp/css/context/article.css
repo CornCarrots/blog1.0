@@ -1,0 +1,92 @@
+
+.myarticle{
+    width: 68%;
+}
+.mainContext{
+    margin: 10px;
+    height: 200px;
+    padding: 20px 10px;
+    position: relative;
+    border: 1px solid #e8ebeb;
+    color: #5e5e5e;
+
+}
+.mainContext a{
+    color: black;
+    text-decoration: none;
+}
+.mainContext a:hover{
+    color: #009688;
+}
+.mainContext .context_title{
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+}
+.mainContext .redBlock{
+    position: absolute;
+    left: 0;
+    top: 20px;
+    background-color: #c40000;
+    width: 6px;
+    height: 30px;
+}
+.mainContext .newBlock{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 0;
+    background-color: #c40000;
+    color: white;
+    text-align: center;
+    width: 35px;
+    height: 20px;
+}
+.mainContext .context_category{
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    background-color: #c40000;
+    text-align: center;
+}
+.mainContext .context_category a{
+    color: white;
+}
+.mainContext .context_category a:hover{
+    color: black;
+}
+.mainContext img{
+    width: 200px;
+    height: 150px;
+    margin-right: 10px;
+}
+.mainContext .context_info{
+    position: absolute;
+    bottom: 30px;
+    left: 230px;
+}
+.mainContext .context_info span{
+    margin: 5px;
+}
+.mainContext .context_info .context_comment a{
+    color: #009688;
+}
+.mainContext  .context_button{
+    position: absolute;
+    bottom: 30px;
+    right: 0px;
+
+}
+.mainContext  .context_button button{
+    width: 80px;
+    height: 30px;
+    outline: none;
+    color: white;
+    background-color:#398898 ;
+    border: 0 ;
+}
+.mainContext  .context_button button:hover{
+    background-color:#009688 ;
+}

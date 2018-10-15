@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.mapper.ArticleMapper">
+  <resultMap id="BaseResultMap" type="com.lh.bean.Article">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
+    <result column="article_uid" jdbcType="INTEGER" property="articleUid" />
+    <result column="article_cpid" jdbcType="INTEGER" property="articleCpid" />
+    <result column="article_ccid" jdbcType="INTEGER" property="articleCcid" />
+    <result column="article_create_date" jdbcType="TIMESTAMP" property="articleCreateDate" />
+    <result column="article_update_date" jdbcType="TIMESTAMP" property="articleUpdateDate" />
+    <result column="article_status" jdbcType="INTEGER" property="articleStatus" />
+    <result column="article_views" jdbcType="BIGINT" property="articleViews" />
+    <result column="article_likes" jdbcType="BIGINT" property="articleLikes" />
+    <result column="article_comments" jdbcType="BIGINT" property="articleComments" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.lh.bean.ArticleWithBLOBs">
+    <result column="article_md_text" jdbcType="LONGVARCHAR" property="articleMdText" />
+    <result column="article_html_text" jdbcType="LONGVARCHAR" property="articleHtmlText" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, article_title, article_uid, article_cpid, article_ccid, article_create_date, 
+    article_update_date, article_status, article_views, article_likes, article_comments
+  </sql>
+  <sql id="Blob_Column_List">
+    article_md_text, article_html_text
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.lh.bean.ArticleExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.lh.bean.ArticleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.ArticleWithBLOBs" useGeneratedKeys="true">
+    insert into article (article_title, article_uid, article_cpid, 
+      article_ccid, article_create_date, article_update_date, 
+      article_status, article_views, article_likes, 
+      article_comments, article_md_text, article_html_text
+      )
+    values (#{articleTitle,jdbcType=VARCHAR}, #{articleUid,jdbcType=INTEGER}, #{articleCpid,jdbcType=INTEGER}, 
+      #{articleCcid,jdbcType=INTEGER}, #{articleCreateDate,jdbcType=TIMESTAMP}, #{articleUpdateDate,jdbcType=TIMESTAMP}, 
+      #{articleStatus,jdbcType=INTEGER}, #{articleViews,jdbcType=BIGINT}, #{articleLikes,jdbcType=BIGINT}, 
+      #{articleComments,jdbcType=BIGINT}, #{articleMdText,jdbcType=LONGVARCHAR}, #{articleHtmlText,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.ArticleWithBLOBs" useGeneratedKeys="true">
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleTitle != null">
+        article_title,
+      </if>
+      <if test="articleUid != null">
+        article_uid,
+      </if>
+      <if test="articleCpid != null">
+        article_cpid,
+      </if>
+      <if test="articleCcid != null">
+        article_ccid,
+      </if>
+      <if test="articleCreateDate != null">
+        article_create_date,
+      </if>
+      <if test="articleUpdateDate != null">
+        article_update_date,
+      </if>
+      <if test="articleStatus != null">
+        article_status,
+      </if>
+      <if test="articleViews != null">
+        article_views,
+      </if>
+      <if test="articleLikes != null">
+        article_likes,
+      </if>
+      <if test="articleComments != null">
+        article_comments,
+      </if>
+      <if test="articleMdText != null">
+        article_md_text,
+      </if>
+      <if test="articleHtmlText != null">
+        article_html_text,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleTitle != null">
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleUid != null">
+        #{articleUid,jdbcType=INTEGER},
+      </if>
+      <if test="articleCpid != null">
+        #{articleCpid,jdbcType=INTEGER},
+      </if>
+      <if test="articleCcid != null">
+        #{articleCcid,jdbcType=INTEGER},
+      </if>
+      <if test="articleCreateDate != null">
+        #{articleCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleUpdateDate != null">
+        #{articleUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleStatus != null">
+        #{articleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="articleViews != null">
+        #{articleViews,jdbcType=BIGINT},
+      </if>
+      <if test="articleLikes != null">
+        #{articleLikes,jdbcType=BIGINT},
+      </if>
+      <if test="articleComments != null">
+        #{articleComments,jdbcType=BIGINT},
+      </if>
+      <if test="articleMdText != null">
+        #{articleMdText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleHtmlText != null">
+        #{articleHtmlText,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lh.bean.ArticleWithBLOBs">
+    update article
+    <set>
+      <if test="articleTitle != null">
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleUid != null">
+        article_uid = #{articleUid,jdbcType=INTEGER},
+      </if>
+      <if test="articleCpid != null">
+        article_cpid = #{articleCpid,jdbcType=INTEGER},
+      </if>
+      <if test="articleCcid != null">
+        article_ccid = #{articleCcid,jdbcType=INTEGER},
+      </if>
+      <if test="articleCreateDate != null">
+        article_create_date = #{articleCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleUpdateDate != null">
+        article_update_date = #{articleUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleStatus != null">
+        article_status = #{articleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="articleViews != null">
+        article_views = #{articleViews,jdbcType=BIGINT},
+      </if>
+      <if test="articleLikes != null">
+        article_likes = #{articleLikes,jdbcType=BIGINT},
+      </if>
+      <if test="articleComments != null">
+        article_comments = #{articleComments,jdbcType=BIGINT},
+      </if>
+      <if test="articleMdText != null">
+        article_md_text = #{articleMdText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleHtmlText != null">
+        article_html_text = #{articleHtmlText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lh.bean.ArticleWithBLOBs">
+    update article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_uid = #{articleUid,jdbcType=INTEGER},
+      article_cpid = #{articleCpid,jdbcType=INTEGER},
+      article_ccid = #{articleCcid,jdbcType=INTEGER},
+      article_create_date = #{articleCreateDate,jdbcType=TIMESTAMP},
+      article_update_date = #{articleUpdateDate,jdbcType=TIMESTAMP},
+      article_status = #{articleStatus,jdbcType=INTEGER},
+      article_views = #{articleViews,jdbcType=BIGINT},
+      article_likes = #{articleLikes,jdbcType=BIGINT},
+      article_comments = #{articleComments,jdbcType=BIGINT},
+      article_md_text = #{articleMdText,jdbcType=LONGVARCHAR},
+      article_html_text = #{articleHtmlText,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lh.bean.Article">
+    update article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_uid = #{articleUid,jdbcType=INTEGER},
+      article_cpid = #{articleCpid,jdbcType=INTEGER},
+      article_ccid = #{articleCcid,jdbcType=INTEGER},
+      article_create_date = #{articleCreateDate,jdbcType=TIMESTAMP},
+      article_update_date = #{articleUpdateDate,jdbcType=TIMESTAMP},
+      article_status = #{articleStatus,jdbcType=INTEGER},
+      article_views = #{articleViews,jdbcType=BIGINT},
+      article_likes = #{articleLikes,jdbcType=BIGINT},
+      article_comments = #{articleComments,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

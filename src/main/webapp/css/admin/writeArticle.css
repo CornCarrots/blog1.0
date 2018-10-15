@@ -1,0 +1,26 @@
+.writeArticle,.editArticle{
+    width: 100%;
+}
+.writeArticle table,.editArticle table{
+    margin: 10px auto;
+    /*width: 80%;*/
+    /*padding: 10px;*/
+    /*table-layout:auto;*/
+    /*text-align: center;*/
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+.writeArticle table tbody tr td:first-child,.editArticle table tbody tr td:first-child{
+    margin-right: 1px;
+    vertical-align: top;
+    width: 5%;
+}
+.radio input{
+    outline: none;
+}
+
+/*.inline {*/
+    /*display: inline-block;*/
+    /*!*vertical-align: middle;*!*/
+    /*padding:0 20px;*/
+/*}*/

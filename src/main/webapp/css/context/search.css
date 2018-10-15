@@ -1,0 +1,21 @@
+.search{
+    width: 65%;
+    margin: 10px;
+}
+.search .search_context{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #999999;
+    padding: 10px;
+    line-height: 20px;
+}
+.search .search_context .search_text{
+    text-decoration: none;
+    color: black;
+}
+.search .search_context .search_text:hover{
+    color: #009688;
+}
+.search .search_context .search_date{
+    color: #888888;
+}

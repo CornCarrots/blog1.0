@@ -1,0 +1,26 @@
+.myMenu table{
+    margin: 10px auto;
+    text-align: center;
+    width: 80%;
+}
+.myMenu table .menu_id{
+    width: 10%;
+}
+.myMenu table .menu_name{
+    width: 20%;
+}
+.myMenu table .menu_edit,.menu_status{
+    width: 15%;
+}
+.menuAdd table{
+    margin: 10px auto;
+    width: 60%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.editMenuTable{
+    margin: 0 auto;
+    border-spacing: 10px;
+    border-collapse: separate;
+}

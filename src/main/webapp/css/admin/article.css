@@ -1,0 +1,43 @@
+
+.allArticle_contain a{
+    color: #5da5d4;
+    text-decoration: none;
+}
+.allArticle_contain a:hover{
+    color: #999999;
+}
+.published_header,.draft_header{
+    position: relative;
+    margin: 20px;
+}
+.deletePublishArticleAll,.deleteDraftArticleAll{
+    position: absolute;
+    top: 7px;
+    right: 10px;
+}
+.published_table, .draft_table{
+    width: 100%;
+    /*margin: 0 auto;*/
+    /*table-layout: fixed;*/
+    text-align: center;
+    /*border-collapse: separate;*/
+}
+
+.published_table  thead tr th,.draft_table  thead tr th{
+    text-align: center;
+}
+.published_table  tbody tr td,.draft_table  tbody tr td{
+    vertical-align: middle;
+}
+.published_table #published_table_checkAll,.published_table .published_table_id,.draft_table #draft_table_checkAll,.draft_table .draft_table_id{
+    width: 5%;
+}
+.published_table .published_table_edit,.draft_table .draft_table_edit{
+    width: 15%;
+}
+.article_table_edit a{
+    color:#222222;
+}
+.article_table_edit a:hover{
+    color: gray;
+}
